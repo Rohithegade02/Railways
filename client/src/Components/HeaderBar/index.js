@@ -160,13 +160,13 @@ function HeaderBar({match}){
     let navbarElements;
 
     switch(userData.role){
-      case 'admin':
+      case 'Admin':
         navbarElements = adminNav
         break;
-      case 'staff':
+      case 'Staff':
         navbarElements = staffNav
         break;
-      case 'supervisor':
+      case 'Supervisor':
         navbarElements = supervisorNav
         break;
       default:
