@@ -54,7 +54,11 @@ module.exports = [
          +'TOC VARCHAR(255) NOT NULL,'
          +'FOREIGN KEY (Userid) REFERENCES users(sid),'
          +'FOREIGN KEY (HOC) REFERENCES users(sid),'
-         +'FOREIGN KEY (TOC) REFERENCES users(sid)'
+         +'FOREIGN KEY (TOC) REFERENCES users(sid),'
+         +'oname VARCHAR(255) NOT NULL,'
+         +'FOREIGN KEY (registerid) REFERENCES registers(regid),'
+         +'registerid VARCHAR(255) NOT NULL'
+
     ],
     [
         'PCD',
@@ -70,7 +74,18 @@ module.exports = [
         +'TWOH INT,'
         +'ONEH INT,'
         +'FIFTY INT,'
-        +'FOREIGN KEY (stid) REFERENCES users(sid)'
+        +'FOREIGN KEY (stid) REFERENCES users(sid),'
+        +'oname VARCHAR(255) NOT NULL,'
+        +'FOREIGN KEY (registerid) REFERENCES registers(regid),'
+        +'registerid VARCHAR(255) NOT NULL'
     ],
+    [
+        'Registers',
+        'regid VARCHAR (255) NOT NULL,Primary key(regid),'
+        +'regname VARCHAR (255) NOT NULL,'
+        +'oname VARCHAR (255) NOT NULL,'
+        +'F'
+
+    ]
   
 ]

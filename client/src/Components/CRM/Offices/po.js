@@ -30,10 +30,12 @@ function PO({oname}){
     
     console.log(userData)
     useEffect(() => {
+        
         axios.post(`${process.env.REACT_APP_CONFIG}/getAdminEmployees`, {
             oname:"PO",
             scode:userData.scd
         })
+        
             .then(res => setEmployees(res.data.employees))
             .catch(err => {
                 toast({
