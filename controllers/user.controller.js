@@ -27,6 +27,7 @@ exports.detailsController = (req, res) => {
     })
 }
 
+
 exports.changePasswordController = (req, res) => {
     const { email, current, newP} = req.body;
 
@@ -151,6 +152,46 @@ exports.addUserController = (req, res) => {
 
     connect.query(adduser_details, function(err){
         if(err){
+            return res.status(400).json({
+                message: "Error Occured"
+            })
+        } else {
+            return res.status(200).json({
+                message: "Added User Successfully"
+            })
+        }
+    })
+}
+exports.addStaffUserController=(req, res) => {
+    const {
+        first,
+        last,
+        new_email,
+        pswd,
+        mobile,
+        role,
+        oname,
+        sid,
+        scd
+    } = req.body;
+    // const e_id = new Date().getTime()%100000000;
+
+    adduser_details = 
+    'insert into railways.users (sid, firstname, lastname,role, email,scd, mobile, password, oname) values ('
+    + '\'' + sid + '\','
+    + '\'' + first + '\','
+    + '\'' + last + '\','
+    + '\'' + role + '\','
+    + '\'' + new_email + '\','
+    + '\'' + scd + '\','
+    + '\'' + mobile + '\','
+    + '\'' + pswd + '\','
+    + '\'' + oname + '\''
+    +')';
+
+    connect.query(adduser_details, function(err){
+        if(err){
+            console.log(req);
             return res.status(400).json({
                 message: "Error Occured"
             })

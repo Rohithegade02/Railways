@@ -7,7 +7,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import PRS from './prs';
 import UTS from './uts';
-
+import PO from './po';
 const useStyles = makeStyles({
   root: {
     width: "90%",
@@ -19,42 +19,49 @@ const useStyles = makeStyles({
 });
 
 
-function AddRegisters() {
+
+
+
+
+function StaffUsers() {
     const classes = useStyles();
   
     const [office, setOffice] =useState(0);
     // 0===>PRS
-    //1===>UTS
+    //1===>PO
+    //2===>UTS
     let oname = 0;
     if(office === 0){
         oname="PRS"
+    }else if(office === 1){
+        oname="PO"
     }else {
         oname="UTS"
     }
   
       console.log(oname);
-    return (
-      <>
-          <BottomNavigation
-          value={office}
-          onChange={(event, newValue) => {
-              setOffice(newValue);
-          }}
-          showLabels
-          className={classes.root}
-          >
-          <BottomNavigationAction label="PRS" icon={<RestoreIcon />} />
-          <BottomNavigationAction label="UTS" icon={<LocationOnIcon />} />
-          </BottomNavigation>
-          
-          { oname==="PRS" ? <PRS oname={oname}  /> : <></>  }
-          
-          { oname==="UTS" ? <UTS oname={oname} /> : <></> }
-  
-      </>
-    )
- 
+
+  return (
+    <>
+        <BottomNavigation
+        value={office}
+        onChange={(event, newValue) => {
+            setOffice(newValue);
+        }}
+        showLabels
+        className={classes.root}
+        >
+        <BottomNavigationAction label="PRS" icon={<RestoreIcon />} />
+        <BottomNavigationAction label="PO" icon={<FavoriteIcon />} />
+        <BottomNavigationAction label="UTS" icon={<LocationOnIcon />} />
+        </BottomNavigation>
+        
+        { oname==="PRS" ? <PRS oname={oname}  /> : <></>  }
+        { oname==="PO" ? <PO oname={oname} /> : <></>    }
+        { oname==="UTS" ? <UTS oname={oname} /> : <></> }
+
+    </>
+  )
 }
 
-export default AddRegisters;
-
+export default StaffUsers;

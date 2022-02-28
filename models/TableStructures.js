@@ -83,8 +83,8 @@ module.exports = [
         'Registers',
         'regid VARCHAR (255) NOT NULL,Primary key(regid),'
         +'regname VARCHAR (255) NOT NULL,'
-        +'oname VARCHAR (255) NOT NULL,'
-        +'F'
+        +'oname VARCHAR (255) NOT NULL'
+        
 
     ]
   

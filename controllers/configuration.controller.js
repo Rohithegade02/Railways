@@ -304,7 +304,7 @@ exports.userDeleteController = (req, res) => {
 
 exports.fetchAdminEmployees = (req, res) => {
     const { scode,oname } = req.body;
-    fetch_employees = 'select firstname,lastname,email,sname, role ,mobile,sid FROM railways.users, railways.station  where (users.role=\'supervisor\' OR users.role=\'staff\') AND ( station.scode=\'' +scode +'\')AND( users.oname=\'' +oname +'\') order by users.role DESC;'   
+    fetch_employees = 'select firstname ,lastname ,email ,scd ,role ,mobile , sid from railways.users u inner join  railways.station s on s.scode= u.scd where (u.role=\'Supervisor\' OR u.role=\'Staff\') AND ( u.scd=\''+ scode  +'\' ) AND ( u.oname=\'' +oname +'\')';   
     // fetch_employees = 'SELECT CONCAT(Firstname, \' \', Surname) as Name, Employee_ID, Email, Mobile, Type, City FROM ice.employees WHERE Reporting =\'' + id + '\'';
     connect.query(fetch_employees, function(err, result) {
         if (err) {
@@ -318,4 +318,23 @@ exports.fetchAdminEmployees = (req, res) => {
             employees: result
         })
     })
+}
+
+exports.fetchSupervisorEmployees=(req,res)=>{
+    const {scode,oname}=req.body;
+    fetch_employees = 'select firstname,lastname,email,sname, role ,mobile,sid FROM railways.users, railways.station  where ( users.role=\'staff\') AND ( station.scode=\'' +scode +'\')AND( users.oname=\'' +oname +'\') ;'   
+    // fetch_employees = 'SELECT CONCAT(Firstname, \' \', Surname) as Name, Employee_ID, Email, Mobile, Type, City FROM ice.employees WHERE Reporting =\'' + id + '\'';
+    connect.query(fetch_employees, function(err, result) {
+        if (err) {
+            return res.status(500).json({
+                message: "Error in Fetching employee"
+
+            })
+        }
+        return res.status(200).json({
+            message: "Fetched Employees!", 
+            employees: result
+        })
+    })
+
 }

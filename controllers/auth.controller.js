@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 exports.loginController = (req, res) => {
     const { sid, password ,scode} = req.body;
 
-    login_query = 'Select sid,email, firstname, lastname,role ,scd from railways.users WHERE sid = \'' + sid + '\' and Password = \'' + password + '\' and scd=\'' + scode + '\'';
+    login_query = 'Select sid,email, firstname, lastname,role ,scd,oname from railways.users WHERE sid = \'' + sid + '\' and Password = \'' + password + '\' and scd=\'' + scode + '\'';
     connect.query(login_query, function(err, result){
         if(err){
             

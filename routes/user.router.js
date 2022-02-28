@@ -10,9 +10,11 @@ const { detailsController,
     getLoginTimeController,
     setLoginTimeController,
     getCityNamesController,
-    telecallerListController
+    telecallerListController,
+    addStaffUserController
 } = require('../controllers/user.controller');
 const { verifyHigherLevel } = require('../validations/higherlevel');
+const { middleLevel } = require('../validations/middlelevel');
 
 router.post('/detailsUser', detailsController);
 router.post('/changePassword', changePasswordController);
@@ -24,5 +26,5 @@ router.post('/getEmployeeTimings', getLoginTimeController);
 router.post('/setEmployeeTimings', setLoginTimeController);
 router.post('/getCityNames', getCityNamesController);
 router.post('/getTelecallerList', telecallerListController);
-
+router.post('/addStaffUser',middleLevel,  addStaffUserController);
 module.exports = router;

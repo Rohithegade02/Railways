@@ -7,7 +7,7 @@ function Footer(){
 
     return (
         <Section>
-            Designed with perfection by Codebugged AI
+            
         </Section>
     )
 }

@@ -144,10 +144,10 @@ function HeaderBar({match}){
     ]
 
     const supervisorNav = [
-      {id: 6, path: `${match.path}/supervisor/home`, icon: AiFillHome, text: 'Home'},
+      {id: 6, path: `${match.path}/home`, icon: AiFillHome, text: 'Home'},
       {id: 1, path: `${match.path}/supervisor/profile`,  icon: ImProfile, text: 'Your Profile' },
-      {id: 2, path: `${match.path}/supervisor/particular_staff`,  icon: BiCarousel, text: 'Particular staff' },
-      {id: 3, path: `${match.path}/supervisor/addUsers`,  icon: MdUpdate, text: 'Users Panel' },
+      {id: 2, path: `${match.path}/supervisor/StaffUsers`,  icon: BiCarousel, text: 'Users' },
+      {id: 3, path: `${match.path}/supervisor/AddStaff`,  icon: MdUpdate, text: 'Add Users' },
       
     ]
 

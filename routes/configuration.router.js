@@ -20,7 +20,8 @@ const {
     sourceAddController,
     fetchUsersController,
     userDeleteController,
-    fetchAdminEmployees
+    fetchAdminEmployees,
+    fetchSupervisorEmployees
 } = require('../controllers/configuration.controller');
 const {
     verifyHigherLevel
@@ -45,6 +46,6 @@ router.post('/addSource', verifyHigherLevel, sourceAddController);
 router.post('/getUsers', verifyHigherLevel, fetchUsersController);
 router.post('/deleteUser', userDeleteController);
 router.post('/getAdminEmployees', fetchAdminEmployees);
-
+router.post('/getSupervisorEmployees',fetchSupervisorEmployees);
 
 module.exports = router;

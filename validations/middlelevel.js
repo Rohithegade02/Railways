@@ -1,9 +1,9 @@
 const { connect } = require("../config/db");
 
-exports.verifyHigherLevel = (req, res, next) => {
+exports.middleLevel = (req, res, next) => {
     const { email } = req.body;
 
-    checkType_query = 'Select firstname from railways.users where email =  \''+ email + '\' and ( role = \'Admin\'  )';
+    checkType_query = 'Select firstname from railways.users where email =  \''+ email + '\' and ( role = \'Supervisor\' or role = \'Admin\' )';
     connect.query(checkType_query, function(err, result){
         
         if(result.length === 1){

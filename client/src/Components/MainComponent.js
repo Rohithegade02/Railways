@@ -26,6 +26,9 @@ import Users from './CRM/Employees/Users';
 import Offices from './CRM/Offices';
 import AddSupervisor from './CRM/AddSupervisor';
 import AddRegisters from './CRM/AddRegisters';
+import StaffUsers from './CRM/StaffUsers';
+import AddStaff from './CRM/AddStaff';
+
 
 
 function Holder({match}){
@@ -36,13 +39,20 @@ function Holder({match}){
             <div style={{backgroundColor: '#E0E0F8', width: '100%', height: 'max-content'}}>
             <Section>
                 <Switch>
+                
                     <PrivateRoute path="/crm/home" exact component={(props) => <Home {...props} />} />
                     <PrivateRoute path="/crm/profile" exact component={(props) => <Profile {...props} />} />
                     <PrivateRoute path="/crm/offices" exact component={(props) => <Offices {...props} />} />
                     <PrivateRoute path="/crm/addSupervisor" exact component={(props) => <AddSupervisor {...props} />} />               
                     <PrivateRoute path="/crm/addRegisters" exact component={() => <AddRegisters />} />
-                    <PrivateRoute path="/crm/convertor/users" exact component={() => <Users />} />
-                    <PrivateRoute path="/crm/nationalHead/users" exact component={() => <Users />} />
+
+
+                    <PrivateRoute path="/crm/supervisor/StaffUsers" exact component={(props) => <StaffUsers {...props} />} />
+                    <PrivateRoute path="/crm/supervisor/profile" exact component={(props) => <Profile {...props} />} />
+                    <PrivateRoute path="/crm/supervisor/AddStaff" exact component={(props) => <AddStaff {...props} />} />
+                    
+
+                    <PrivateRoute path="/crm/staff/profile" exact component={(props) => <Profile {...props} />} />
                     <Redirect to = '/crm/home' />
                 </Switch>
             </Section>
